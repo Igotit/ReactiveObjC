@@ -5,9 +5,10 @@
 //  Created by Justin Spahr-Summers on 2013-03-08.
 //  Copyright (c) 2013 GitHub, Inc. All rights reserved.
 //
+#if TARGET_OS_OSX
 
 #import "NSControl+RACTextSignalSupport.h"
-#import <ReactiveObjC/EXTScope.h>
+#import <ReactiveObjC/RACEXTScope.h>
 #import "NSObject+RACDescription.h"
 #import "RACDisposable.h"
 #import "RACSignal.h"
@@ -36,3 +37,5 @@
 }
 
 @end
+
+#endif

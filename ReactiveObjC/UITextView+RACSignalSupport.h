@@ -5,6 +5,7 @@
 //  Created by Cody Krieger on 5/18/12.
 //  Copyright (c) 2012 Cody Krieger. All rights reserved.
 //
+#if !TARGET_OS_OSX && !TARGET_OS_WATCH
 
 #import <UIKit/UIKit.h>
 
@@ -35,3 +36,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif

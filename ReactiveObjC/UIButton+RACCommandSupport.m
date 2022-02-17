@@ -5,9 +5,10 @@
 //  Created by Ash Furrow on 2013-06-06.
 //  Copyright (c) 2013 GitHub, Inc. All rights reserved.
 //
+#if !TARGET_OS_OSX && !TARGET_OS_WATCH
 
 #import "UIButton+RACCommandSupport.h"
-#import <ReactiveObjC/EXTKeyPathCoding.h>
+#import <ReactiveObjC/RACEXTKeyPathCoding.h>
 #import "RACCommand.h"
 #import "RACDisposable.h"
 #import "RACSignal+Operations.h"
@@ -54,3 +55,5 @@ static void *UIButtonEnabledDisposableKey = &UIButtonEnabledDisposableKey;
 }
 
 @end
+
+#endif

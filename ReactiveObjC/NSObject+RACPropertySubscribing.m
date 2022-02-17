@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+RACPropertySubscribing.h"
-#import <ReactiveObjC/EXTScope.h>
+#import <ReactiveObjC/RACEXTScope.h>
 #import "NSObject+RACDeallocating.h"
 #import "NSObject+RACDescription.h"
 #import "NSObject+RACKVOWrapper.h"
@@ -17,7 +17,6 @@
 #import "RACSubscriber.h"
 #import "RACSignal+Operations.h"
 #import "RACTuple.h"
-#import <libkern/OSAtomic.h>
 
 @implementation NSObject (RACPropertySubscribing)
 

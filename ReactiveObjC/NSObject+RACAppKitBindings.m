@@ -5,10 +5,11 @@
 //  Created by Josh Abernathy on 4/17/12.
 //  Copyright (c) 2012 GitHub, Inc. All rights reserved.
 //
+#if TARGET_OS_OSX
 
 #import "NSObject+RACAppKitBindings.h"
-#import <ReactiveObjC/EXTKeyPathCoding.h>
-#import <ReactiveObjC/EXTScope.h>
+#import <ReactiveObjC/RACEXTKeyPathCoding.h>
+#import <ReactiveObjC/RACEXTScope.h>
 #import "NSObject+RACDeallocating.h"
 #import "RACChannel.h"
 #import "RACCompoundDisposable.h"
@@ -144,3 +145,5 @@
 }
 
 @end
+
+#endif

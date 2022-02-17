@@ -11,8 +11,8 @@
 
 #import "RACSubscriberExamples.h"
 
-#import <libkern/OSAtomic.h>
-#import <ReactiveObjC/EXTScope.h>
+#import <stdatomic.h>
+#import <ReactiveObjC/RACEXTScope.h>
 #import "RACBehaviorSubject.h"
 #import "RACCompoundDisposable.h"
 #import "RACDisposable.h"
@@ -255,10 +255,10 @@ qck_describe(@"RACReplaySubject", ^{
 
 			// Just leak it, ain't no thang.
 			__unsafe_unretained volatile id *values = (__unsafe_unretained id *)calloc(count, sizeof(*values));
-			__block volatile int32_t nextIndex = 0;
+			__block atomic_int nextIndex = 0;
 
 			[subject subscribeNext:^(NSNumber *value) {
-				int32_t indexPlusOne = OSAtomicIncrement32(&nextIndex);
+				int32_t indexPlusOne = atomic_fetch_add(&nextIndex, 1) + 1;
 				values[indexPlusOne - 1] = value;
 			}];
 
@@ -276,7 +276,7 @@ qck_describe(@"RACReplaySubject", ^{
 				[subject sendCompleted];
 			});
 
-			OSMemoryBarrier();
+			atomic_thread_fence(memory_order_seq_cst);
 
 			NSArray *liveValues = [NSArray arrayWithObjects:(id *)values count:(NSUInteger)nextIndex];
 			expect(liveValues).to(haveCount(@(count)));

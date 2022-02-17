@@ -5,6 +5,8 @@
 //  Created by Henrik Hodne on 6/16/13.
 //  Copyright (c) 2013 GitHub, Inc. All rights reserved.
 //
+#if !TARGET_OS_OSX && !TARGET_OS_WATCH
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_9_0
 
 #import <UIKit/UIKit.h>
 
@@ -49,3 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif 
+#endif
